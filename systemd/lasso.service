@@ -1,0 +1,16 @@
+[Unit]
+Description=Lasso Data Wrangler
+
+[Service]
+User=carnego
+Type=simple
+# The PID file is optional, but recommended in the manpage
+# "so that systemd can identify the main process of the daemon"
+PIDFile=/var/run/lasso
+WorkingDirectory=/home/carnego/bin/lasso
+Restart=on-failure
+Environment=RUST_LOG=error
+ExecStart=/home/carnego/bin/lasso/target/debug/lasso
+
+[Install]
+WantedBy=multi-user.target

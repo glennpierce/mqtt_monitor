@@ -1,0 +1,70 @@
+[package]
+name = "Lasso"
+version = "0.1.0"
+authors = ["Glenn Pierce <glenn.pierce@carnegosystems.com>"]
+
+[dependencies]
+pretty_env_logger = "0.1.0"
+ctrlc = { version = "3.0", features = ["termination"] }
+error-chain = "0.10.0"
+lazy_static = "0.2.4"
+log = "0.3.1"
+app_dirs = "1.1.1"
+#runtime-fmt = "0.3.0"
+bitflags = "0.9.1"
+rand = "0.3"
+time = "0.1.37"
+indoc = "0.2"
+crossbeam = "0.2.10"
+csv = "0.15.0"
+itertools = "0.5.9"
+futures = "0.1.9"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+hyper = "0.10.9"
+iron = "0.5"
+mount = "*"
+params = "*"
+staticfile = "*"
+router = "*"
+ws = "0.7.0"
+url = "1.4.0"
+spmc = "0.2.1"
+base64 = "0.5.2"
+toml = "*"
+clap = "1.2.5"
+postgres = { version = "0.15", features = ["with-chrono"] }
+chrono = "0.4"
+cron = "0.3"
+ftp = { git = "https://github.com/mattnenterprise/rust-ftp", version = "*"}
+ssh2 = "0.3.1"
+mysql = "*"
+fern = "*"
+cute = "0.3.0"
+cli = { path = "cli" }
+backtrace = "*"
+meval = { path = "meval-rs" }
+schedule = { path = "schedule-rs" }
+rumqtt = "0.10.1"
+
+[dependencies.bodyparser]
+git = "https://github.com/iron/body-parser.git"
+
+[lib]
+name = "liblasso"
+path = "src/lib.rs"
+test = false
+bench = false
+
+[[bin]]
+name = "lasso"
+path = "lasso/lasso.rs"
+
+[[bin]]
+name = "lassoctl"
+path = "lasso/lassoctl.rs"
+
+[[bin]]
+name = "c3"
+path = "tools/c3.rs"

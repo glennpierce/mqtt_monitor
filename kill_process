@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+pid=`ps -ef | grep [n]ocapture | awk {'print$2'}`
+kill -9 $pid
