@@ -104,6 +104,8 @@ fn run() -> Result<(), Error> {
                   FOREIGN KEY(topic) REFERENCES topics(id)
                   )", &[]).unwrap();
 
+    conn.close();
+
     let client_options = MqttOptions::new()
                                         .set_keep_alive(5)
                                         .set_reconnect(3)
@@ -125,7 +127,9 @@ fn run() -> Result<(), Error> {
         //     value: time::get_time()
         // };
 
-        //conn.execute("INSERT OR IGNORE INTO "topics"(topic) VALUES('?1')", &[&topic]).unwrap();
+        let conn = Connection::open_in_memory().unwrap();
+
+        conn.execute("INSERT OR IGNORE INTO topics(topic) VALUES('?1')", &[&topic]).unwrap();
 
         //SELECT id FROM "Values" WHERE data = 'SOME_DATA';
 
