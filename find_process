@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-lsof -i tcp:3012
